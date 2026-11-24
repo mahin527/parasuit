@@ -1,0 +1,11 @@
+allowBuilds:
+  esbuild: true
+minimumReleaseAgeExclude:
+  - '@prisma/orm-family-sql@8.0.0-rc.25'
+  - '@prisma/orm-framework@8.0.0-rc.25'
+  - '@prisma/orm-postgres@8.0.0-rc.25'
+  - '@prisma/orm-target-postgres@8.0.0-rc.25'
+  - '@prisma/orm-toolchain@8.0.0-rc.25'
+  - '@prisma/composer-cli@0.40.0'
+  - '@prisma/composer@0.40.0'
+  - prisma@8.0.0-rc.35
