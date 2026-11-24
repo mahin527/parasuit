@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+
+# Agent tooling directories (local only)
+.agents/
+.claude/
+.cursor/
+.devin/
