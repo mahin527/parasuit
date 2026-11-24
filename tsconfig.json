@@ -9,9 +9,7 @@
         // See also https://aka.ms/tsconfig/module
         "module": "preserve",
         "target": "esnext",
-        "types": [
-            "node"
-        ],
+        "types": ["node"],
         // For nodejs:
         // "lib": ["esnext"],
         // "types": ["node"],
@@ -19,8 +17,12 @@
 
         // Other Outputs
         "sourceMap": true,
-        "declaration": true,
-        "declarationMap": true,
+        // This is an application, not a published library: nothing builds
+        // declaration output. Declarations are also unemittable here because
+        // Prisma ORM's inferred types are only reachable through transitive
+        // (pnpm) paths, which would fail with TS2742/TS2883.
+        "declaration": false,
+        "declarationMap": false,
 
         // Stricter Typechecking Options
         "noUncheckedIndexedAccess": true,
@@ -45,4 +47,10 @@
         "moduleResolution": "bundler",
         "resolveJsonModule": true,
     },
+    // Only the application source under `src` belongs to this project.
+    // `prisma.config.ts` is a root-level CLI tooling file: it is not part of
+    // the app program (so it stays outside `rootDir`) and must not be
+    // declaration-emitted (its export type is not nameable from a public path).
+    "include": ["src"],
+    "exclude": ["node_modules", "dist"],
 }
