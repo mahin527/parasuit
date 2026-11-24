@@ -97,3 +97,5 @@ Or turn skills linking off completely:
 skills:
     dirs: []
 ```
+
+> Prisma 8 does not use `@prisma/client` or `prisma generate`. Use `contract emit` instead.
